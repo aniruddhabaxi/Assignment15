@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta name="description" content="Dynamic web development">
+<meta name="author" content="Aniruddha">
+<meta name="viewport" content="width=device-width initial-scale=1.0">
+<link href="css/style15.css" rel="stylesheet" type="text/css">
+<title>Assignment 15</title>
+</head>
+<body>
+  <script>
+  function allowDrop(ev)
+  {
+      ev.preventDefault();
+  }
+  function drag(ev)
+  {
+      ev.dataTransfer.setData("text", ev.target.id);
+  }
+  function drop(ev)
+  {
+      ev.preventDefault();
+      const data= ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+  }
+  </script>
+<header>
+<h2 style="padding-top:35px;">Risk Factor Information</h2>
+</header>
+<section class="row">
+<nav class="nav_upper" class="col-12">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li style="margin-right:0px;"><a href="#">Logout</a></li>
+  </ul>
+</nav>
+</section>
+<section class="row">
+  <nav class="col-3" id="side_nav">
+    <ul>
+      <li><a href="#">Personal information</a></li>
+      <li><a href="#">Risk Factor Information</a></li>
+      <li><a href="#">Hepatitis B Pregnant Women Reporting</a></li>
+      <li><a href="#">Congenital Syphilis Form</a></li>
+      <li style="border-bottom: none;"><a href="#">Chlamydia & Gonorrhea case reporting</a></li>
+    </ul>
+  </nav>
+<article class="col-9">
+  <h1>Risk Factor Information Page</h1>
+  <p> the last 12 months, Drag the options that apply</p>
+  <div id="first_container" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div id="drag_item1" draggable="true" ondragstart="drag(event)">Had sex with males</div>
+      <div id="drag_item2" draggable="true" ondragstart="drag(event)">Had sex with females</div>
+      <div id="drag_item3" draggable="true" ondragstart="drag(event)">Victim of sexual assault</div>
+      <div id="drag_item4" draggable="true" ondragstart="drag(event)">Homeless</div>
+      <div id="drag_item5" draggable="true" ondragstart="drag(event)">Incarcerated</div>
+      <div id="drag_item6" draggable="true" ondragstart="drag(event)">Possible exposure</div>
+      <div id="drag_item7" draggable="true" ondragstart="drag(event)">Routine screening</div>
+  </div>
+  <div id="second_container" ondrop="drop(event)" ondragover="allowDrop(event)">
+  </div>
+</article>
+</section>
+<section class="row">
+  <footer class="col-12">
+    <p>@aniruddhabaxi 2024</p>
+  </footer>
+</section>
+</body>
+</html>
